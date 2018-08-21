@@ -6,7 +6,11 @@
     "scripts": {
         "start": "node server/server.js",
         "test": "mocha server/utils/*.test.js --timeout 1500",
-        "test-watch": "nodemon --exec 'npm test'"
+        "test-watch": "nodemon --exec 'npm test'",
+        "test-mochaawesome": "nyc --reporter=html mocha test/*.js --reporter mochawesome --exit",
+    "e2etest": "testcafe puppeteer:no_sandbox test/e2e/*.js --reporter html",
+    "runner": "node server/server.js",
+    "lighthouse:ci": "lighthouse --output-path=report/lighthouse-report.html --quiet --chrome-flags='--headless --no-sandbox=true' // your website URL//",
     },
     "engines": {
         "node": "9.5.0"
